@@ -1,7 +1,7 @@
 <?php
-namespace App;
-use App\Spices\Spices;
-class Paper extends Spices
+namespace App\Spices;
+use App\Spice;
+class Paper extends Spice
 {
     public function getWeight(): float
     {

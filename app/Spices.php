@@ -1,6 +1,6 @@
 <?php
 namespace App;
-abstract class Spices
+abstract class Spice
 {
     private string $name;
     public abstract function getWeight(): float;
