@@ -2,8 +2,10 @@
 
 require_once 'app/Spice.php';
 require_once 'app/SpicesCollection.php';
-require_once 'app/Spices/Salt.php';
-require_once 'app/Spices/Pepper.php';
+
+foreach (glob('app/Spices/*.php') as $filename) {
+    require_once $filename;
+}
 
 use App\SpicesCollection;
 use App\Spice;
