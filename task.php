@@ -1,6 +1,6 @@
 <?php
 
-class Person {
+class Person1 {
     protected string $name;
     protected string $surname;
     protected ?string $middleName;
@@ -21,9 +21,9 @@ class Person {
     }
 }
 
-$person = new Person("Vilis", "Bergmanis");
-$person2 = new Person("Baiba", "Broka");
-$person3 = new Person("Egils", "Melbardis", "Vladimirovičs");
+$person = new Person1("Vilis", "Bergmanis");
+$person2 = new Person1("Baiba", "Broka");
+$person3 = new Person1("Egils", "Melbardis", "Vladimirovičs");
 
 echo "{$person->name()} {$person->middleName()} {$person->surname()}" . PHP_EOL;
 echo "{$person2->name()} {$person2->middleName()} {$person2->surname()}" . PHP_EOL;
