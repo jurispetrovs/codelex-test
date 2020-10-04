@@ -16,7 +16,7 @@ $shop = new Shop('Narvesen Salaspils', $productStorage->loadProducts());
 $personStorage = new PersonStorage('persons.txt');
 $personCollection = new PersonCollection($personStorage->loadPersons());
 
-function shopping(PersonCollection $personCollection, Shop $shop, ProductStorage $productStorage): void
+function shopping(PersonCollection $personCollection, PersonStorage $personStorage, Shop $shop, ProductStorage $productStorage): void
 {
     $buyerId = (int)readline('Please choose a buyer: ');
     $buyer = $personCollection->getPersonById($buyerId);
@@ -28,8 +28,8 @@ function shopping(PersonCollection $personCollection, Shop $shop, ProductStorage
             $buyer->removeMoney($product->getPrice());
             $buyer->addProduct($product->getName());
 
+            $personStorage->savePersons('persons.txt', $buyer);
             $productStorage->saveProducts('products.txt', $product);
-            //$shop->saveProducts('products.txt', $product);
         } elseif($product !== null && $buyer->getBudget() < $product->getPrice()) {
             echo 'Sorry you dont have enough money' . PHP_EOL;
         } else {
@@ -55,7 +55,7 @@ while (true) {
         case 3:
             DrawInformation::drawPersons($personCollection);
             echo PHP_EOL;
-            shopping($personCollection, $shop, $productStorage);
+            shopping($personCollection, $personStorage, $shop, $productStorage);
             break;
         case 4:
             echo PHP_EOL . 'Exit' . PHP_EOL;

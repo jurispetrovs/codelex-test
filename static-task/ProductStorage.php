@@ -33,7 +33,9 @@ class ProductStorage
         $fileContent = file($path);
         $lastRow = count($fileContent) - 1;
 
-        $fileContent[$productToSave->getId() - 1] = $productToSave->getId() . ';'
+        $line = array_search($productToSave->getId(), $fileContent);
+
+        $fileContent[$line] = $productToSave->getId() . ';'
             . $productToSave->getName() . ';' . $productToSave->getPrice() . ';'
             . $productToSave->getCount() . '/' . PHP_EOL;
         $fileContent[$lastRow] = str_replace(PHP_EOL, '', $fileContent[$lastRow]);

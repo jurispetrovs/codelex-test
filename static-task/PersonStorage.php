@@ -9,10 +9,10 @@ class PersonStorage
         $this->path = $path;
     }
 
-    public function loadPersonsProducts(string $personProducts): array
+    public function loadPersonProducts(string $personProducts): array
     {
         $personProducts = trim($personProducts, "{}");
-        $personProducts = (array)explode('|', $personProducts);
+        $personProducts = (array)array_filter(explode('|', $personProducts));
 
         return $personProducts;
     }
@@ -25,7 +25,7 @@ class PersonStorage
 
         foreach ($rows as $row) {
             $personData = (array)explode(';', $row);
-            $personProductData = $this->loadPersonsProducts($personData[3]);
+            $personProductData = $this->loadPersonProducts($personData[3]);
             $persons[] = new Person(
                 (int)$personData[0],
                 (string)trim($personData[1]),
@@ -35,5 +35,21 @@ class PersonStorage
         }
 
         return $persons;
+    }
+
+    public function savePersons(string $path, Person $personToSave)
+    {
+        $fileContent = file($path);
+        $lastRow = count($fileContent) - 1;
+
+        $line = array_search($personToSave->getId(), $fileContent);
+
+        $fileContent[$line] = $personToSave->getId() . ';'
+            . $personToSave->getName() . ';' . $personToSave->getBudget() . ';{'
+            . implode('|', $personToSave->getProducts()) . '}/' . PHP_EOL;
+
+        $fileContent[$lastRow] = str_replace(PHP_EOL, '', $fileContent[$lastRow]);
+
+        file_put_contents($path, $fileContent);
     }
 }
