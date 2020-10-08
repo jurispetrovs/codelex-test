@@ -1,1 +1,2 @@
-# codelex-test
+# This repository is for submitting homework for Codelex
+P.S. My therapist told me the way to achieve true inner peace is to finish what I start. So far I’ve finished two bags of M&M's and a chocolate cake. I feel better already.
