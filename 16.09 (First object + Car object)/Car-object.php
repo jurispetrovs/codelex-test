@@ -23,7 +23,6 @@ class Audi extends Auto {
 
 class BMW extends Auto {
     public function getTank(): int {
-        $tank = parent::getTank();
         return $tank = 120;
     }
 }
