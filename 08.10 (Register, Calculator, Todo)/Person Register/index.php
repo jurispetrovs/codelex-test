@@ -5,6 +5,8 @@ require_once 'PersonStorage.php';
 
 $personStorage = new PersonStorage();
 
+var_dump($personStorage);
+
 if (isset($_POST['submit'])) {
     $submitResult = $personStorage->getByPersonCode($_POST);
 }

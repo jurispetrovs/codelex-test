@@ -17,7 +17,7 @@ class PersonStorage
         foreach ($this->persons as $person) {
             /** @var Person $person */
             if ($person->getPersonCode() === $personData['personCode']) {
-                return 'Fail';
+                return 'Person with that person code exists';
             }
         }
 
@@ -34,7 +34,7 @@ class PersonStorage
         );
 
         fputcsv($this->resource, $person->personToArray());
-        return 'Success';
+        return $person->getName() . 'Added successfully';
     }
 
     public function loadPersons(): void
