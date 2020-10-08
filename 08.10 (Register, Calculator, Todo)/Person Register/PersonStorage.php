@@ -33,6 +33,8 @@ class PersonStorage
             $personData['address']
         );
 
+        $this->persons[] = $person;
+
         fputcsv($this->resource, $person->personToArray());
         return $person->getName() . 'Added successfully';
     }
