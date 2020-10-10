@@ -1,0 +1,17 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.todo {
+    display: inline-block;
+    width: 50%;
+}
+
+.todoList {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
