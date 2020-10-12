@@ -35,7 +35,7 @@ if ($_POST) {
     <h2><?= $safe->isLocked($pin) ?></h2>
 </div>
 <div class="pin">
-    <h3><?= $pin->getHiddenNum() ?></h3>
+    <h3><?= $pin->getHiddenPin() ?></h3>
 </div>
 
 <div class="numpad">
