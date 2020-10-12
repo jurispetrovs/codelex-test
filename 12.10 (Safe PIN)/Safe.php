@@ -12,12 +12,7 @@ class Safe
         $this->locked = $locked;
     }
 
-    public function getPin(): string
-    {
-        return $this->pin;
-    }
-
-    public function isLocked(Pin $pin): bool
+    public function pinCompare(Pin $pin): bool
     {
         if ($this->pin === $pin->getPin()) {
             return false;
@@ -25,11 +20,11 @@ class Safe
         return true;
     }
 
-    public function openSafe(Pin $pin): string
+    public function isLocked(Pin $pin): string
     {
-        if ($this->isLocked($pin) && $pin->getEnteredPinLength() === $this->getPinLength()) {
+        if ($this->pinCompare($pin) && $pin->getEnteredPinLength() === $this->getPinLength()) {
             return 'Locked';
-        } elseif ($this->isLocked($pin) === false && $pin->getEnteredPinLength() === $this->getPinLength()) {
+        } elseif ($this->pinCompare($pin) === false && $pin->getEnteredPinLength() === $this->getPinLength()) {
             return 'Unlocked';
         } else {
             return '';

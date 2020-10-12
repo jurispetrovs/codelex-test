@@ -11,6 +11,7 @@ $pin = new Pin;
 if ($_POST) {
 
     $_SESSION['pin'] .= $_POST['num'];
+
     $pin->setPin($_SESSION['pin']);
 
     if (strlen($_SESSION['pin']) >= $safe->getPinLength()) {
@@ -31,7 +32,7 @@ if ($_POST) {
 <body>
 
 <div class="lock">
-    <h2><?= $safe->openSafe($pin) ?></h2>
+    <h2><?= $safe->isLocked($pin) ?></h2>
 </div>
 <div class="pin">
     <h3><?= $pin->getHiddenNumCount() ?></h3>
