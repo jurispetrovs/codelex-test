@@ -1,21 +1,20 @@
 <?php
 
-session_start();
-
-
 require_once 'Safe.php';
 require_once 'Pin.php';
+
+session_start();
 
 $safe = new Safe(1234);
 $pin = new Pin;
 
-if ($_GET) {
+if ($_POST) {
 
-    $_SESSION['pin'] = substr_replace($_SESSION['pin'], $_GET['num'], strlen($_SESSION['pin']), 0);
+    $_SESSION['pin'] .= $_POST['num'];
     $pin->setPin($_SESSION['pin']);
 
     if (strlen($_SESSION['pin']) >= $safe->getPinLength()) {
-        session_destroy();
+        unset($_SESSION['pin']);
     }
 }
 
@@ -39,21 +38,21 @@ if ($_GET) {
 </div>
 
 <div class="numpad">
-    <form action="/" method="get">
+    <form action="/" method="post">
         <button type="submit" name="num" value="7">7</button>
         <button type="submit" name="num" value="8">8</button>
         <button type="submit" name="num" value="9">9</button>
     </form>
 </div>
 <div class="numpad">
-    <form action="/" method="get">
+    <form action="/" method="post">
         <button type="submit" name="num" value="4">4</button>
         <button type="submit" name="num" value="5">5</button>
         <button type="submit" name="num" value="6">6</button>
     </form>
 </div>
 <div class="numpad">
-    <form action="/" method="get">
+    <form action="/" method="post">
         <button type="submit" name="num" value="1">1</button>
         <button type="submit" name="num" value="2">2</button>
         <button type="submit" name="num" value="3">3</button>

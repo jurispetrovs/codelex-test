@@ -27,10 +27,12 @@ class Safe
 
     public function openSafe(Pin $pin): string
     {
-        if ($this->isLocked($pin)) {
+        if ($this->isLocked($pin) && $pin->getEnteredPinLength() === $this->getPinLength()) {
             return 'Locked';
-        } else {
+        } elseif ($this->isLocked($pin) === false && $pin->getEnteredPinLength() === $this->getPinLength()) {
             return 'Unlocked';
+        } else {
+            return '';
         }
     }
 
@@ -38,5 +40,4 @@ class Safe
     {
         return strlen($this->pin);
     }
-
 }
