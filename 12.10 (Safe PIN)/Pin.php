@@ -19,7 +19,7 @@ class Pin
         return strlen($this->pin);
     }
 
-    public function getHiddenNum(): string
+    public function getHiddenPin(): string
     {
         return str_repeat('*', $this->getEnteredPinLength());
     }
