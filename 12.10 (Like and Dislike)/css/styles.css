@@ -1,0 +1,24 @@
+.block {
+    text-align: center;
+}
+
+.image {
+    height: 300px;
+}
+
+.image-block {
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.like {
+    margin-bottom: 10px;
+}
+
+.dislike {
+    margin-bottom: 10px;
+}
+
+.likes-count {
+    margin-bottom: 50px;
+}
