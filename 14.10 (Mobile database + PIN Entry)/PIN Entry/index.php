@@ -27,7 +27,7 @@ if (isset($_POST['logout'])) {
 <head>
     <meta charset="UTF-8">
     <title>PIN Entry</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>

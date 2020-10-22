@@ -12,7 +12,7 @@ $personStorage = new PersonStorage('./persons.csv');
 <head>
     <meta charset="UTF-8">
     <title>Mobile Database</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
