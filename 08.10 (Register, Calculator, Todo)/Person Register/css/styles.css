@@ -1,0 +1,27 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.personForm {
+    display: inline-block;
+    width: 33%;
+}
+
+.resultForm {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+}
+
+.searchForm {
+    display: inline-block;
+    width: 33%;
+    text-align: right;
+}
+
+input[type=text] {
+    text-align: center;
+}
