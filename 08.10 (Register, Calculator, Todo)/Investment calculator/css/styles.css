@@ -1,0 +1,17 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.input {
+    display: inline-block;
+    width: 40%;
+}
+
+.resultForm {
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+}
